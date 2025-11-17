@@ -43,7 +43,7 @@ public class testController {
     }
 
     @GetMapping("/test")
-    public List<Document> test() {
+    public String test() {
 //        List<Document> documents = List.of(
 //                new Document("Spring AI rocks!! Spring AI rocks!! Spring AI rocks!! Spring AI rocks!! Spring AI rocks!!", Map.of("meta1", "meta1")),
 //                new Document("The World is Big and Salvation Lurks Around the Corner"),
@@ -51,7 +51,7 @@ public class testController {
 //
 //        vectorStore.add(documents);
 
-        List<Document> results = vectorStore.similaritySearch("spring");
-        return results;
+        vectorStore.delete(List.of("SQL_DELETE_ROW"));
+        return "Succes";
     }
 }

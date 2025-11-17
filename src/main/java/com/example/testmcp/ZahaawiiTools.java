@@ -33,6 +33,10 @@ public class ZahaawiiTools {
         this.userRepository = userRepository;
     }
 
+    /*
+    These methods below are for the blog
+     ===================================
+     */
     @McpTool(name = "GetAllBlogPost", description = "Gets all blog post")
     public List<Blog> getAllBlogPost() {
         try {
@@ -54,6 +58,10 @@ public class ZahaawiiTools {
             throw new RuntimeException(e);
         }
     }
+    /*
+     ===================================
+     This Methods below are for the ChromaDB
+     */
 
     @McpTool(name = "FindArticles", description = "Gets the nearest similarities of the question")
     public List<Document> getSimiliaritySearch(@McpToolParam String question) throws Exception {
@@ -84,6 +92,21 @@ public class ZahaawiiTools {
         } catch (Exception e) {
             log.error("Failed to upload data from the method addArticleToDatabase");
             return "Error adding article to database";
+        }
+    }
+
+    @McpTool(name = "DeleteArticle", description = "Gives access to delete a article in the vector database")
+    public String deleteArticlesFromDatabase(@McpToolParam String id) {
+        log.info("This method deleteArticlesFromDatabase is being acceesed");
+
+        try {
+            log.info("Trying to delete an article with id: {}", id);
+            vectorStore.delete(List.of(id));
+            log.info("Deleted the article");
+            return "Succesfully deleted: "  + id;
+        } catch (Exception e) {
+            log.error("Could not delete the article: {} ", id);
+            throw new RuntimeException(e);
         }
     }
 }

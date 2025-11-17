@@ -21,13 +21,13 @@ It gives me permission denied, whatever I try. I will come back to the standard 
 @Configuration
 public class ChromaDBConfig {
 
-    private String chromaApiToken = System.getenv("CHROMADB_API_KEY");
+    private final String chromaApiToken = System.getenv("CHROMADB_API_KEY");
 
     @Bean
     public RestClient.Builder restClientBuilder() {
         return RestClient.builder()
                 .requestFactory(new SimpleClientHttpRequestFactory())
-                .defaultHeader("X-Chroma-Token", chromaApiToken); // <--- Claude Code gave me this to make it work
+                .defaultHeader("X-Chroma-Token", chromaApiToken); // <--- Claude Code gave me this to make it work, because Chroma do not use Bearer header
     }
 
     @Bean
