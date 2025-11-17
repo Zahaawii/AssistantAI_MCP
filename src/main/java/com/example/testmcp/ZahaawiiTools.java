@@ -35,7 +35,13 @@ public class ZahaawiiTools {
 
     @McpTool(name = "GetAllBlogPost", description = "Gets all blog post")
     public List<Blog> getAllBlogPost() {
-        return blogRepository.findAll();
+        try {
+            log.info("This method is being accessed trying to find all blog post");
+            return blogRepository.findAll();
+        } catch (Exception e) {
+            log.error("Failed to retrieve all the data from the method: getAllBlogPost");
+            throw new RuntimeException(e);
+        }
     }
 
     @McpTool(name = "AuthorPost", description = "Get all blog post by author")
@@ -44,14 +50,16 @@ public class ZahaawiiTools {
             log.info("This method is being accessed trying to find author");
             return blogRepository.findAllByUserInfo_Name(author);
         } catch (Exception e) {
+            log.error("Failed to retrieve data from method: GetAllBlogPostByAuthor:  {}", author);
             throw new RuntimeException(e);
         }
     }
 
     @McpTool(name = "FindArticles", description = "Gets the nearest similarities of the question")
     public List<Document> getSimiliaritySearch(@McpToolParam String question) throws Exception {
+
         try {
-            log.info("The method getSimiliarySearch is being accessed with question: {}", question);
+            log.info("The method getSimiliaritySearch is being accessed with question: {}", question);
 
             return this.vectorStore.similaritySearch(SearchRequest.builder()
                     .query(question)
@@ -59,6 +67,7 @@ public class ZahaawiiTools {
                     .build());
 
         } catch (Exception e) {
+            log.error("Failed to retrieve data from the method getSimiliaritySearch: {}", question);
             throw new RuntimeException("Couldn't find anything: " + e.getMessage());
         }
     }
@@ -73,15 +82,8 @@ public class ZahaawiiTools {
             log.info("Success");
             return "Added document to the database";
         } catch (Exception e) {
-            log.info("Error");
+            log.error("Failed to upload data from the method addArticleToDatabase");
             return "Error adding article to database";
         }
     }
-
-    /*
-    test data:
-#insert into users (user_Id, created_Date, email, img_Path, name, password, roles) VALUES (1, null, "zahaa", "zahaa", "zahaa", "1234", "ROLE_ADMIN");
-#insert into blog (blog_id, body, category, publish_date, subject, user_id) VALUES (1, "hey", "hey", null, "hey", 1);
-     */
-
 }
