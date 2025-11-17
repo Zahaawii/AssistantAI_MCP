@@ -30,6 +30,9 @@ The setup is functional, extendable, and ready for deeper integration into large
 - https://docs.spring.io/spring-ai/reference/api/mcp/mcp-streamable-http-server-boot-starter-docs.html
 - https://www.youtube.com/watch?v=TSFkdlreRMQ
 - https://platform.openai.com/docs/guides/tools-connectors-mcp
+- https://docs.spring.io/spring-ai/reference/api/vectordbs/chroma.html#_configuration_properties
+- https://docs.spring.io/spring-ai/reference/api/embeddings/google-genai-embeddings-text.html
+
 
 (And additional sources explored during implementation.)
 

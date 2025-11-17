@@ -14,6 +14,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
+
+/*
+This controller is right now for test.
+It has been made with the purpose to test if the rest client gets a result and being able to print it.
+Right now it is possible for the rest client to store the data in the documents list
+We need to implement it in the MCP class, but we will wait till tomorrow
+
+(TODO: DO IT IN TEST ENVIRONMENT)
+Furthermore, it is for me to test if my methods gets returned as I intended
+ */
+
 @RestController
 public class testController {
 

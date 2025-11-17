@@ -10,6 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
+/*
+
+This class if to test if the embedding works, as I want the MCP server to be able to create new articles,
+therefore we need to be able to embed the content.
+
+TODO: Place the Controller in the Test environment (test class) so it is the "correct way"
+
+ */
+
 @RestController
 public class EmbeddingController {
 

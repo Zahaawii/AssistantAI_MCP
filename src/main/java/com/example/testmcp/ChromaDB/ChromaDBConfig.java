@@ -7,12 +7,16 @@ import org.springframework.ai.chroma.vectorstore.ChromaApi;
 import org.springframework.ai.chroma.vectorstore.ChromaVectorStore;
 import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.vectorstore.VectorStore;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestClient;
 
+
+/*
+This config is for my backend to talk with CHROMADB cloud as the standard spring solution doesnt work as inteded.
+It gives me permission denied, whatever I try. I will come back to the standard method, when available.
+ */
 
 @Configuration
 public class ChromaDBConfig {
@@ -23,7 +27,7 @@ public class ChromaDBConfig {
     public RestClient.Builder restClientBuilder() {
         return RestClient.builder()
                 .requestFactory(new SimpleClientHttpRequestFactory())
-                .defaultHeader("X-Chroma-Token", chromaApiToken);
+                .defaultHeader("X-Chroma-Token", chromaApiToken); // <--- Claude Code gave me this to make it work
     }
 
     @Bean
