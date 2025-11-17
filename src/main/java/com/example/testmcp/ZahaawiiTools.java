@@ -32,4 +32,10 @@ public class ZahaawiiTools {
         return blogRepository.findAllByUserInfo_Name(author);
     }
 
+    /*
+    test data:
+#insert into users (user_Id, created_Date, email, img_Path, name, password, roles) VALUES (1, null, "zahaa", "zahaa", "zahaa", "1234", "ROLE_ADMIN");
+#insert into blog (blog_id, body, category, publish_date, subject, user_id) VALUES (1, "hey", "hey", null, "hey", 1);
+     */
+
 }
