@@ -1,6 +1,5 @@
-package com.example.testmcp;
+package com.example.testmcp.mcpService;
 
-import com.example.testmcp.BlogFeature.entity.Blog;
 import com.example.testmcp.repositories.BlogRepository;
 import com.example.testmcp.repositories.UserRepository;
 import org.slf4j.Logger;
@@ -17,51 +16,13 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class ZahaawiiTools {
+public class KBAServiceMCP {
 
 
     @Autowired
     VectorStore vectorStore;
 
-    private static final Logger log = LoggerFactory.getLogger(ZahaawiiTools.class);
-
-    private final BlogRepository blogRepository;
-    private final UserRepository userRepository;
-
-    public ZahaawiiTools(BlogRepository blogRepository, UserRepository userRepository) {
-        this.blogRepository = blogRepository;
-        this.userRepository = userRepository;
-    }
-
-    /*
-    These methods below are for the blog
-     ===================================
-     */
-    @McpTool(name = "GetAllBlogPost", description = "Gets all blog post")
-    public List<Blog> getAllBlogPost() {
-        try {
-            log.info("This method is being accessed trying to find all blog post");
-            return blogRepository.findAll();
-        } catch (Exception e) {
-            log.error("Failed to retrieve all the data from the method: getAllBlogPost");
-            throw new RuntimeException(e);
-        }
-    }
-
-    @McpTool(name = "AuthorPost", description = "Get all blog post by author")
-    public List<Blog> getAllBlogPostByAuthor(@McpToolParam String author) {
-        try {
-            log.info("This method is being accessed trying to find author");
-            return blogRepository.findAllByUserInfo_Name(author);
-        } catch (Exception e) {
-            log.error("Failed to retrieve data from method: GetAllBlogPostByAuthor:  {}", author);
-            throw new RuntimeException(e);
-        }
-    }
-    /*
-     ===================================
-     This Methods below are for the ChromaDB
-     */
+    private static final Logger log = LoggerFactory.getLogger(KBAServiceMCP.class);
 
     @McpTool(name = "FindArticles", description = "Gets the nearest similarities of the question")
     public List<Document> getSimiliaritySearch(@McpToolParam String question) throws Exception {

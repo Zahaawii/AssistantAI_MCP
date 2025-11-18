@@ -1,12 +1,15 @@
 package com.example.testmcp;
 
 
+import com.example.testmcp.BlogFeature.DTO.AuthLogin;
 import com.example.testmcp.BlogFeature.entity.Blog;
 import com.example.testmcp.repositories.BlogRepository;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestClient;
 
 import java.util.List;
 
