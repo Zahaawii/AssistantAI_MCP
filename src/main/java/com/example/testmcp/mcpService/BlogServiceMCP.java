@@ -21,8 +21,8 @@ public class BlogServiceMCP {
 
     private final BlogServiceAPI blogApi;
 
-    public BlogServiceMCP(BlogServiceAPI blogApi, BlogServiceAPI blogApi1) {
-        this.blogApi = blogApi1;
+    public BlogServiceMCP(BlogServiceAPI blogApi) {
+        this.blogApi = blogApi;
     }
 
 

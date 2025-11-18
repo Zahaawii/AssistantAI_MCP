@@ -74,7 +74,6 @@ public class BlogServiceAPI {
                 .body(String.class);
     }
 
-    //TODO Working on adding a blog post, but having issues with the publishDate format
     public String createBlogPost(String subject, String body, String category, Long userId, Date publishDate, String jwtToken) {
         CreateBlogPostDTO createBlogPost = new CreateBlogPostDTO(subject, body, category, userId, publishDate);
         return RestClient.builder().build()
