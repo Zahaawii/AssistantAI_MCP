@@ -1,7 +1,5 @@
 package com.example.testmcp.mcpService;
 
-import com.example.testmcp.repositories.BlogRepository;
-import com.example.testmcp.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springaicommunity.mcp.annotation.McpTool;
