@@ -37,6 +37,9 @@ The setup is functional, extendable, and ready for deeper integration into large
 - https://www.baeldung.com/spring-parameterized-type-reference
 - https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/
 - https://www.baeldung.com/mockito-verify
+- https://dzone.com/articles/unit-testing-void-functions-with-mockito
+- https://github.com/mockito/mockito/issues/3014
+- https://www.browserstack.com/guide/using-mockito-any
 
 
 (And additional sources explored during implementation.)
