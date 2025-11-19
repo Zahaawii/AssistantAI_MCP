@@ -26,13 +26,12 @@ public class KBAServiceMCP {
     public List<Document> getSimiliaritySearch(@McpToolParam String question) throws Exception {
 
         try {
-            log.info("The method getSimiliaritySearch is being accessed with question: {}", question);
+            log.info("The method getSimilaritySearch is being accessed with question: {}", question);
 
             return this.vectorStore.similaritySearch(SearchRequest.builder()
                     .query(question)
                     .topK(5)
                     .build());
-
         } catch (Exception e) {
             log.error("Failed to retrieve data from the method getSimiliaritySearch: {}", question);
             throw new RuntimeException("Couldn't find anything: " + e.getMessage());
