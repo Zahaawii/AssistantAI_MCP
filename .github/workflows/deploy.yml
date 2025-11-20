@@ -61,6 +61,6 @@ jobs:
           git remote set-url origin https://github.com/Zahaawii/AssistantAI_MCP.git && 
           git pull origin main &&
           docker compose up --build --detach
-          docker stop 5cbfcbd869f8
-          docker start 5cbfcbd869f8
+          docker stop assistantai_backend
+          docker start assistantai_backend
           "
