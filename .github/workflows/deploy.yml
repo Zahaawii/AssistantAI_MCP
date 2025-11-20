@@ -2,9 +2,9 @@ name: Test project and then Deploy Ubuntu Server Project
 
 on:
   push:
-    branches: [ "main", "testBranch" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "testBranch" ]
+    branches: [ "main" ]
 
 jobs:
   build:
