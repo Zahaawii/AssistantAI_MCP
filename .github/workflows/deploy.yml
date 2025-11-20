@@ -55,7 +55,7 @@ jobs:
           SERVER_IP: ${{ secrets.SERVER_IP }}
           APP_DIR: ${{ secrets.APP_DIR }}
         run: |
-          ssh $SERVER_USER@$SERVER_IP"
+          ssh $SERVER_USER@$SERVER_IP "
           cd $APP_DIR &&
           git remote set-url origin git@github.com:Zahaawii/AssistantAI_MCP.git && 
           git pull origin main &&
