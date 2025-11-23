@@ -1,91 +1,106 @@
 # MCP Server Project
 
-This project implements a Model Context Protocol (MCP) server and a static MCP client.  
-The client sends a user query, the server chooses the appropriate method/tool, executes it, and returns the result.  
-The setup is functional, extendable, and ready for deeper integration into larger systems such as your Personal Assistant AI.
+This project implements a **Model Context Protocol (MCP) server**.
+
+The system is now fully integrated with the AssistantAI and provides dynamic tool execution, data management, authentication, CI/CD, and deployment.  
+It has evolved into a feature-rich backend agent supporting real workflows across ChromaDB and your blog platform.
 
 ---
 
 ## 🚀 Current Capabilities
 
-- Fully working **MCP server** built with Spring + MCP documentation.
-- Working **MCP client**:
-    - Accepts user questions.
-    - Sends them to the MCP server.
-    - Automatically selects the correct tool/method.
-    - Returns the processed response.
-- End-to-end functional flow between client → server → tool → output.
+### 🧩 MCP Server
+The server fully supports interaction with **ChromaDB** and your **Blog API**.
+
+#### **ChromaDB Tools**
+- Read documents
+- Upload documents
+- Delete documents
+- AssistantAI can autonomously create/store new knowledge
+
+#### **Blog Tools**
+- Read all blog posts
+- Read posts by author
+- Log in and obtain a JWT token
+- Delete blog posts
+- Create structured blog posts
+
+### 🤖 AssistantAI Integration
+AssistantAI is fully connected and can:
+- Upload new articles into ChromaDB
+- Read, create, and delete blog posts
+- Authenticate as a user or service account
+- Perform actions as an intelligent agent
+
+### 🔄 CI/CD + Testing
+The project includes:
+- **CI/CD pipeline** using GitHub Actions
+- **Unit tests** (Mockito, JUnit)
+- **Integration tests** validating MCP → Backend → ChromaDB flow
+
+### 🌍 Deployment
+The MCP server is live and available for external MCP clients at:
+
+**http://mcp.zaak.dk/mcp**
 
 ---
 
 ## 📚 Resources Used During Development
 
-- https://modelcontextprotocol.io/docs/getting-started/intro
-- https://modelcontextprotocol.io/docs/develop/build-server#java
-- https://docs.spring.io/spring-ai/reference/api/mcp/mcp-server-boot-starter-docs.html#_configuration_properties
-- https://docs.spring.io/spring-ai/reference/index.html
-- https://github.com/spring-projects/spring-ai-examples/blob/main/model-context-protocol/weather/manual-webflux-server/src/main/java/org/springframework/ai/mcp/sample/server/WeatherApiClient.java
-- https://github.com/danvega/dvaas
-- https://spring.io/blog/2025/09/16/spring-ai-mcp-intro-blog
-- https://docs.spring.io/spring-ai/reference/api/mcp/mcp-streamable-http-server-boot-starter-docs.html
-- https://www.youtube.com/watch?v=TSFkdlreRMQ
-- https://platform.openai.com/docs/guides/tools-connectors-mcp
-- https://docs.spring.io/spring-ai/reference/api/vectordbs/chroma.html#_configuration_properties
-- https://docs.spring.io/spring-ai/reference/api/embeddings/google-genai-embeddings-text.html
-- https://docs.spring.io/spring-ai/docs/current/api/org/springframework/ai/chroma/vectorstore/ChromaApi.html?utm_source=chatgpt.com
-- https://docs.spring.io/spring-ai/docs/current/api/org/springframework/ai/vectorstore/VectorStore.html?utm_source=chatgpt.com
-- https://www.baeldung.com/spring-parameterized-type-reference
-- https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/
-- https://www.baeldung.com/mockito-verify
-- https://dzone.com/articles/unit-testing-void-functions-with-mockito
-- https://github.com/mockito/mockito/issues/3014
-- https://www.browserstack.com/guide/using-mockito-any
-- https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#using-the-env-context-to-access-environment-variable-values
-- https://blog.devops.dev/effortless-ubuntu-server-deployments-with-github-actions-%EF%B8%8F-3ded9ea699e8
+- [MCP Introduction](https://modelcontextprotocol.io/docs/getting-started/intro)
+- [Build an MCP Server (Java)](https://modelcontextprotocol.io/docs/develop/build-server#java)
+- [Spring AI MCP Server Boot Docs](https://docs.spring.io/spring-ai/reference/api/mcp/mcp-server-boot-starter-docs.html#_configuration_properties)
+- [Spring AI Documentation](https://docs.spring.io/spring-ai/reference/index.html)
+- [Spring AI MCP Weather Example](https://github.com/spring-projects/spring-ai-examples/blob/main/model-context-protocol/weather/manual-webflux-server/src/main/java/org/springframework/ai/mcp/sample/server/WeatherApiClient.java)
+- [Dan Vega – DVaaS Example](https://github.com/danvega/dvaas)
+- [Spring MCP Intro Blog](https://spring.io/blog/2025/09/16/spring-ai-mcp-intro-blog)
+- [Spring MCP Streamable Server Docs](https://docs.spring.io/spring-ai/reference/api/mcp/mcp-streamable-http-server-boot-starter-docs.html)
+- [MCP Overview (YouTube)](https://www.youtube.com/watch?v=TSFkdlreRMQ)
+- [OpenAI Tools & MCP Guide](https://platform.openai.com/docs/guides/tools-connectors-mcp)
+- [ChromaDB Configuration (Spring AI)](https://docs.spring.io/spring-ai/reference/api/vectordbs/chroma.html#_configuration_properties)
+- [Google GenAI Embeddings Docs](https://docs.spring.io/spring-ai/reference/api/embeddings/google-genai-embeddings-text.html)
+- [ChromaApi JavaDocs](https://docs.spring.io/spring-ai/docs/current/api/org/springframework/ai/chroma/vectorstore/ChromaApi.html)
+- [VectorStore JavaDocs](https://docs.spring.io/spring-ai/docs/current/api/org/springframework/ai/vectorstore/VectorStore.html)
+- [ParameterizedTypeReference Guide](https://www.baeldung.com/spring-parameterized-type-reference)
+- [AAA Testing Pattern](https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/)
+- [Mockito Verify](https://www.baeldung.com/mockito-verify)
+- [Testing Void Methods with Mockito](https://dzone.com/articles/unit-testing-void-functions-with-mockito)
+- [Mockito Issue #3014](https://github.com/mockito/mockito/issues/3014)
+- [Mockito ANY Guide](https://www.browserstack.com/guide/using-mockito-any)
+- [GitHub Actions – Env Variables](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#using-the-env-context-to-access-environment-variable-values)
+- [Ubuntu Deployment with GitHub Actions](https://blog.devops.dev/effortless-ubuntu-server-deployments-with-github-actions-%EF%B8%8F-3ded9ea699e8)
 
-
-(And additional sources explored during implementation.)
+(And many additional references explored during implementation.)
 
 ---
 
 ## 🧭 Next Steps
 
-### 1. Add Robust Backend Logic + Error Handling
-- Validate input parameters before tool execution.
-- Add structured error messages for both client and server.
-- Improve tool selection logic and fallback behavior.
-- Add safe defaults to avoid crashes or invalid responses.
+### 1. Improve Backend Robustness & Error Handling
+- Strong typed error responses
+- Input validation
+- Fallback logic
+- Logging + tracing
 
-### 2. Expand MCP Tools (More Methods)
-Introduce more operations your MCP server can perform:
-- Fetching external API data.
-- Uploading/storing data.
-- Editing existing server-side data.
-- Multi-step operations.
-- Categorized tools for clearer structure.
+### 2. Expand Toolset
+- Blog comment tools
+- User profile tools
+- Multi-step workflows
+- Combined ChromaDB + blog tools
 
-### 3. Connect MCP to Your Assistant AI
-Integrate this MCP system into your existing Assistant AI project:
-- Use MCP tools as context providers instead of (or alongside) the vector DB.
-- Enable dynamic execution of tools by the AI (agent-style behavior).
-- Allow the assistant to fetch, update, or store information via MCP.
+### 3. Enhance AssistantAI Behavior
+- Better tool-calling logic
+- Planning + multi‑step reasoning
+- Dynamic context retrieval
+- More autonomous agent abilities
 
-This step transforms your assistant into a **real AI agent**, not just a RAG bot.
-
----
-
-## 🔧 Optional Future Improvements
-
-- Create a proper UI to interact with the MCP server.
-- Add authentication (API tokens / JWT).
-- Logging and observability for tool calls.
-- Containerize the server (Docker).
-- Add automated tests and CI/CD.
-- Document each tool individually for future contributors.
+### 4. Optional Dashboard UI
+- Browse ChromaDB
+- Trigger tools manually
+- View logs, metadata, and execution traces
 
 ---
 
 ## 📄 License
 
 MIT License.
-
