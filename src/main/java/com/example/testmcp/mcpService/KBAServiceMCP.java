@@ -45,6 +45,14 @@ public class KBAServiceMCP {
         }
     }
 
+    /**
+     * Makes the AI able to upload articles based on its own knowledge or what it has been giving of information
+     * @param id for the article to identify it
+     * @param content what the article is about
+     * @param tagName makes it easier for the vector search
+     * @param tagDescription makes it easier to vector search
+     * @return approves if the article was added or not
+     */
     @McpTool(name = "addArticles", description = "Gives access to add new articles to the vector database")
     public String addArticlesToDatabase(@McpToolParam String id, String content, String tagName, String tagDescription) {
         log.info("This addArticlesToDatabase is being accessed");
